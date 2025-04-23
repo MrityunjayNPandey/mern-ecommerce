@@ -1,32 +1,6 @@
 version: '3'
 
 services:
-  client:
-    build: client
-    container_name: client
-    ports:
-      - '80:8080'
-    networks:
-      - app-network
-
-  server:
-    build: server
-    container_name: server
-    environment:
-      - PORT=3000
-      - BASE_API_URL=api
-      - CLIENT_URL=http://localhost
-      - JWT_SECRET=update_your_JWT_secret
-      - MONGO_URI=mongodb://mongo:27017/mern_ecommerce
-    ports:
-      - '3000:3000'
-    command:
-      ['sh', '-c', 'npm run seed:db admin@example.com admin123 && npm start']
-    depends_on:
-      - mongo
-    networks:
-      - app-network
-
   mongo:
     image: mongo:latest
     container_name: mongodb
@@ -35,6 +9,32 @@ services:
       - '27017:27017'
     volumes:
       - mongodb_data:/data/db
+    networks:
+      - app-network
+
+  server:
+    build: server
+    container_name: server
+    environment:
+      - PORT=8080
+      - BASE_API_URL=api
+      - CLIENT_URL=http://localhost # -- didn't think about this yet
+      - JWT_SECRET=update_your_JWT_secret
+      - MONGO_URI=mongodb://mongo:27017/mern_ecommerce
+    ports:
+      - '8080:8080'
+    command:
+      ['sh', '-c', 'npm run seed:db admin@example.com admin123 && npm start']
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  client:
+    build: client
+    container_name: client
+    ports:
+      - '3000:3000'
     networks:
       - app-network
 

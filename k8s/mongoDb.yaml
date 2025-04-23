@@ -31,22 +31,6 @@ spec:
     requests:
       storage: 1Gi
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: mongo
-  name: mongodb-service
-spec:
-  ports:
-    - port: 27017
-      protocol: TCP
-      targetPort: 27017
-      nodePort: 32000
-  selector:
-    app: mongo
-  type: LoadBalancer
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -90,17 +74,6 @@ spec:
             timeoutSeconds: 5
             successThreshold: 1
             failureThreshold: 6
-          env:
-            - name: MONGO_INITDB_ROOT_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: mongo-creds
-                  key: username
-            - name: MONGO_INITDB_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mongo-creds
-                  key: password
           volumeMounts:
             - name: 'mongo-data-dir'
               mountPath: '/data/db'
@@ -115,3 +88,18 @@ spec:
         - name: 'mongo-data-dir'
           persistentVolumeClaim:
             claimName: 'mongodb-pvc'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mongo
+  name: mongodb-service
+spec:
+  ports:
+    - port: 27017
+      protocol: TCP
+      targetPort: 27017
+  selector:
+    app: mongo
+  type: LoadBalancer
