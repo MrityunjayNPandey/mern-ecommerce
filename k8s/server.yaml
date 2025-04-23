@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: joker0/mern-ecomm-kub-server:v1 # You'll need to update this with your image
+          image: joker0/mern-ecomm-kub-server:latest # You'll need to update this with your image
           env:
             - name: PORT
               value: '8080'
@@ -25,6 +25,22 @@ spec:
               value: 'dOISD78324KJASD67sdsSAIuyiyuas3434'
           ports:
             - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 8080
+            initialDelaySeconds: 300
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 5
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 20
+            timeoutSeconds: 5
+            failureThreshold: 5
           resources:
             requests:
               cpu: '100m'
