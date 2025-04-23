@@ -1,3 +1,4 @@
+# in production don't do secrets like this
 apiVersion: v1
 data:
   password: cGFzc3dvcmQxMjM= #password123
