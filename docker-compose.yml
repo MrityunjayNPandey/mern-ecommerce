@@ -12,7 +12,7 @@ services:
     networks:
       - app-network
 
-  server:
+  server-service:
     build: server
     container_name: server
     environment:
