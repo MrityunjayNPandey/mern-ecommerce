@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mern-config
+data:
+  PORT: "3000"
+  BASE_API_URL: "api"
+  CLIENT_URL: "http://localhost" # replace with deployed client url
+  MONGO_URI: "mongodb://mongodb-service:27017/mern_ecommerce"
