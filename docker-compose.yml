@@ -17,14 +17,11 @@ services:
       - BASE_API_URL=api
       - CLIENT_URL=http://localhost:8080
       - JWT_SECRET=update_your_JWT_secret
-      - MONGO_URI=mongodb://mongo:27017/mern_ecommerce # Default Mongo URL & DB name when running project locally
+      - MONGO_URI=mongodb://mongo:27017/mern_ecommerce
     ports:
       - '3000:3000'
-    command: [
-        'sh',
-        '-c',
-        'npm run seed:db admin@example.com admin123 && npm start'
-      ] # Default email and password arguments to database seed script - update your admin email and password
+    command:
+      ['sh', '-c', 'npm run seed:db admin@example.com admin123 && npm start']
     depends_on:
       - mongo
     networks:
@@ -36,9 +33,14 @@ services:
     command: mongod --quiet --logpath /dev/null
     ports:
       - '27017:27017'
+    volumes:
+      - mongodb_data:/data/db
     networks:
       - app-network
 
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  mongodb_data:
