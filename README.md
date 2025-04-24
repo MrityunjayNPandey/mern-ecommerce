@@ -9,28 +9,61 @@ This project deals with the containerized deployment in Kubernetes Cluster.
 3. Auto connect to database when health check fails.
 4. Updated frontend nginix configuration to hide backend url.
 
-## Architecture Diagram:
+## Architecture Diagram
 
--- This is only a rough architecture diagram.
+The project uses a typical MERN stack (MongoDB, Express/Node.js, React, Nginx) deployed on Kubernetes.
+
+### Frontend: React app served by Nginx, which also reverse proxies API requests to the backend.
+### Backend: Node.js/Express API, deployed as multiple pods for horizontal scaling.
+### Database: MongoDB, deployed as a single pod with a PersistentVolume for data durability.
+### Kubernetes: All components are containerized and orchestrated via Kubernetes (example: AKS).
+
 ![alt text](image-1.png)
-
-This project is deployed on AKS.
 
 ## Configuration rationale:
 
 ### Database: 
 
-The Mongodb backend is a single pod which has the functionality to scale vertically. Setting up a horizontally scaling is tricky because it involves several other factors as well. It is set up with a persistent volume, so as if there are some issues, the data remains on it. I didn't deploy it in stateful set as this also does the job well. I've not used mongo creds because db url is not supposed to be exposed. Also it makes the implementation easier.
+1. Deployed as a single pod (not StatefulSet) for simplicity.
+2. Uses a PersistentVolume to retain data across restarts.
+3. Vertical scaling is supported; horizontal scaling is complex for MongoDB and not implemented here.
+4. Credentials are not exposed in the DB URL for security and simplicity.
 
 ### Backend:
 
-The NodeJs backend is deployed as a group of multiple pods. So as to reduce the workload if there are any such load requirements. It scales horizontally.
+1. Node.js backend is deployed as a Deployment with multiple pods.
+2. Supports horizontal scaling to handle increased load.
+3. Health check API and auto-reconnect to DB on health check failure are implemented.
 
 ### Frontend: 
 
-The frontend is deployed with a nginix server for reverse proxying backend requests. When there is an increase to the load, the pods scale horizontally.
+1. Served by Nginx, which also acts as a reverse proxy to the backend.
+2. Nginx configuration hides backend URLs from the client.
+3. Frontend pods can scale horizontally as needed.
 
+## Operational Procedures
 
+Seeding the Database:
+After updating the DB URL in db.js, run:
 
-To seed the data use, after updating the db url in server/utils/db.js: 
-//npm run seed:db admin@example.com admin123
+This seeds the database with an admin user.
+
+```
+npm run seed:db admin@example.com admin123
+```
+
+Health Checks:
+The backend exposes a health check API (/api/health). If the DB connection fails, the backend attempts to auto-reconnect.
+
+Scaling:
+
+Backend and frontend pods are horizontally scalable via Kubernetes HPA.
+MongoDB scales vertically (by increasing resources), not horizontally.
+
+## Local Testing
+
+just do 
+
+```
+docker-compose up
+```
