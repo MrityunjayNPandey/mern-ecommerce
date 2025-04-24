@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: joker0/mern-ecomm-kub-client:v6 # You'll need to update this with your image
+          image: joker0/mern-ecomm-kub-client:latest # You'll need to update this with your image
           ports:
             - containerPort: 3000
           livenessProbe:
@@ -51,3 +51,28 @@ spec:
     - port: 80
       targetPort: 3000
   type: LoadBalancer
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: client-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: client
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 50
