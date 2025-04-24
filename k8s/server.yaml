@@ -17,6 +17,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: mern-config
+            - secretRef:
+                name: jwt-secret
           ports:
             - containerPort: 8080
           livenessProbe:
@@ -40,7 +42,7 @@ spec:
               cpu: '100m'
               memory: '256Mi'
             limits:
-              cpu: '500m'
+              cpu: '300m'
               memory: '512Mi'
 
 ---
@@ -66,8 +68,8 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: server
-  minReplicas: 2
-  maxReplicas: 10
+  minReplicas: 1
+  maxReplicas: 3
   metrics:
     - type: Resource
       resource:

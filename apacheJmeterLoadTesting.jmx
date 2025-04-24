@@ -11,13 +11,11 @@
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group on Nginix Backend Proxy">
-        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
         <intProp name="ThreadGroup.num_threads">0</intProp>
         <intProp name="ThreadGroup.ramp_time">0</intProp>
         <longProp name="ThreadGroup.duration">10</longProp>
         <longProp name="ThreadGroup.delay">2</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
-        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
           <intProp name="LoopController.loops">-1</intProp>
@@ -26,7 +24,7 @@
       </ThreadGroup>
       <hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ecomm Store HTTP Request 1">
-          <stringProp name="HTTPSampler.domain">98.70.236.15</stringProp>
+          <stringProp name="HTTPSampler.domain">135.235.233.174</stringProp>
           <stringProp name="HTTPSampler.path">/api/product/list?name=all&amp;category=music&amp;brand=all&amp;min=1&amp;max=2500&amp;rating=0&amp;order=0&amp;page=1&amp;limit=10&amp;sortOrder=%7B%22_id%22:-1%7D</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -38,7 +36,7 @@
         </HTTPSamplerProxy>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ecomm Store HTTP Request 2">
-          <stringProp name="HTTPSampler.domain">98.70.236.15</stringProp>
+          <stringProp name="HTTPSampler.domain">135.235.233.174</stringProp>
           <stringProp name="HTTPSampler.path">/api/product/list?name=all&amp;category=music&amp;brand=all&amp;min=1&amp;max=2500&amp;rating=0&amp;order=0&amp;page=1&amp;limit=10&amp;sortOrder=%7B%22_id%22:-1%7D</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -50,7 +48,7 @@
         </HTTPSamplerProxy>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ecomm Store HTTP Request 3">
-          <stringProp name="HTTPSampler.domain">98.70.236.15</stringProp>
+          <stringProp name="HTTPSampler.domain">135.235.233.174</stringProp>
           <stringProp name="HTTPSampler.path">/api/product/list?name=all&amp;category=health&amp;brand=all&amp;min=1&amp;max=2500&amp;rating=0&amp;order=0&amp;page=1&amp;limit=10&amp;sortOrder=%7B%22_id%22:-1%7D</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -62,7 +60,7 @@
         </HTTPSamplerProxy>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ecomm Store HTTP Request 5">
-          <stringProp name="HTTPSampler.domain">98.70.236.15</stringProp>
+          <stringProp name="HTTPSampler.domain">135.235.233.174</stringProp>
           <stringProp name="HTTPSampler.path">/</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -74,7 +72,7 @@
         </HTTPSamplerProxy>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ecomm Store HTTP Request 4">
-          <stringProp name="HTTPSampler.domain">98.70.236.15</stringProp>
+          <stringProp name="HTTPSampler.domain">135.235.233.174</stringProp>
           <stringProp name="HTTPSampler.path">/api/product/list?name=all&amp;category=beauty&amp;brand=all&amp;min=1&amp;max=2500&amp;rating=0&amp;order=0&amp;page=1&amp;limit=10&amp;sortOrder=%7B%22_id%22:-1%7D</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -161,7 +159,7 @@
         <hashTree/>
       </hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group on Backend">
-        <intProp name="ThreadGroup.num_threads">10000</intProp>
+        <intProp name="ThreadGroup.num_threads">1000</intProp>
         <intProp name="ThreadGroup.ramp_time">10</intProp>
         <longProp name="ThreadGroup.duration">5</longProp>
         <longProp name="ThreadGroup.delay">2</longProp>
@@ -174,7 +172,7 @@
       </ThreadGroup>
       <hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ecomm Store HTTP Request 1">
-          <stringProp name="HTTPSampler.domain">135.235.184.141</stringProp>
+          <stringProp name="HTTPSampler.domain">135.235.249.160</stringProp>
           <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.path">/api/product/list?name=all&amp;category=music&amp;brand=all&amp;min=1&amp;max=2500&amp;rating=0&amp;order=0&amp;page=1&amp;limit=10&amp;sortOrder=%7B%22_id%22:-1%7D</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -187,7 +185,7 @@
         </HTTPSamplerProxy>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ecomm Store HTTP Request 2">
-          <stringProp name="HTTPSampler.domain">135.235.184.141</stringProp>
+          <stringProp name="HTTPSampler.domain">135.235.249.160</stringProp>
           <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.path">/api/product/list?name=all&amp;category=music&amp;brand=all&amp;min=1&amp;max=2500&amp;rating=0&amp;order=0&amp;page=1&amp;limit=10&amp;sortOrder=%7B%22_id%22:-1%7D</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -200,7 +198,7 @@
         </HTTPSamplerProxy>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ecomm Store HTTP Request 3">
-          <stringProp name="HTTPSampler.domain">135.235.184.141</stringProp>
+          <stringProp name="HTTPSampler.domain">135.235.249.160</stringProp>
           <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.path">/api/product/list?name=all&amp;category=health&amp;brand=all&amp;min=1&amp;max=2500&amp;rating=0&amp;order=0&amp;page=1&amp;limit=10&amp;sortOrder=%7B%22_id%22:-1%7D</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -213,7 +211,7 @@
         </HTTPSamplerProxy>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ecomm Store HTTP Request 4">
-          <stringProp name="HTTPSampler.domain">135.235.184.141</stringProp>
+          <stringProp name="HTTPSampler.domain">135.235.249.160</stringProp>
           <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.path">/api/product/list?name=all&amp;category=beauty&amp;brand=all&amp;min=1&amp;max=2500&amp;rating=0&amp;order=0&amp;page=1&amp;limit=10&amp;sortOrder=%7B%22_id%22:-1%7D</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>

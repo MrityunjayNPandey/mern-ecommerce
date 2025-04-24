@@ -35,10 +35,10 @@ spec:
           resources:
             requests:
               cpu: '50m'
-              memory: '128Mi'
+              memory: '20Mi'
             limits:
-              cpu: '250m'
-              memory: '256Mi'
+              cpu: '100m'
+              memory: '100Mi'
 ---
 apiVersion: v1
 kind: Service
@@ -62,7 +62,7 @@ spec:
     kind: Deployment
     name: client
   minReplicas: 2
-  maxReplicas: 10
+  maxReplicas: 3
   metrics:
     - type: Resource
       resource:

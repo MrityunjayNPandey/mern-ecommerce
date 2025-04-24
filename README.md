@@ -61,6 +61,16 @@ Scaling:
 Backend and frontend pods are horizontally scalable via Kubernetes HPA.
 MongoDB scales vertically (by increasing resources), not horizontally.
 
+Deploying:
+
+Build the docker images of server and client, push it to docker hub. Then replace the image names in yaml files. 
+
+Deploy it using command:
+
+```
+kubectl apply -f k8s/
+```
+
 ## Local Testing
 
 just do 
