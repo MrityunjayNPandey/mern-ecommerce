@@ -1,3 +1,9 @@
+# A fork of https://github.com/mohamedsamara/mern-ecommerce
+
+To seed the data use, after updating the db url in server/utils/db.js: 
+//npm run seed:db admin@example.com admin123
+
+
 # MERN Ecommerce
 
 ## Description
