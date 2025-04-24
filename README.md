@@ -8,6 +8,7 @@ This project deals with the containerized deployment in Kubernetes Cluster.
 2. Added health check API
 3. Auto connect to database when health check fails.
 4. Updated frontend nginix configuration to hide backend url.
+5. Removed AWS features, I focused on deployment only.
 
 ## Architecture Diagram
 
