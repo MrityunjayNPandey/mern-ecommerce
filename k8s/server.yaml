@@ -14,15 +14,9 @@ spec:
       containers:
         - name: server
           image: joker0/mern-ecomm-kub-server:latest # You'll need to update this with your image
-          env:
-            - name: PORT
-              value: '8080'
-            - name: BASE_API_URL
-              value: 'api'
-            - name: MONGO_URI
-              value: 'mongodb://mongodb-service:27017/mern_ecommerce'
-            - name: JWT_SECRET
-              value: 'dOISD78324KJASD67sdsSAIuyiyuas3434'
+          envFrom:
+            - configMapRef:
+                name: mern-config
           ports:
             - containerPort: 8080
           livenessProbe:

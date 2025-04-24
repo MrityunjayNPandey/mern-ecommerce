@@ -7,4 +7,4 @@ data:
   BASE_API_URL: 'api'
   CLIENT_URL: 'http://localhost' # replace with deployed client url
   MONGO_URI: 'mongodb://mongodb-service:27017/mern_ecommerce'
-  JWT_SECRET: 'update_your_JWT_secret'
+  JWT_SECRET: '*&%*(&^%@*&@#UYTUY@iuy2t422928642AIOTE&*@!)7865'
