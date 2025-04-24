@@ -13,10 +13,10 @@ This project deals with the containerized deployment in Kubernetes Cluster.
 
 The project uses a typical MERN stack (MongoDB, Express/Node.js, React, Nginx) deployed on Kubernetes.
 
-### Frontend: React app served by Nginx, which also reverse proxies API requests to the backend.
-### Backend: Node.js/Express API, deployed as multiple pods for horizontal scaling.
-### Database: MongoDB, deployed as a single pod with a PersistentVolume for data durability.
-### Kubernetes: All components are containerized and orchestrated via Kubernetes (example: AKS).
+1. Frontend: React app served by Nginx, which also reverse proxies API requests to the backend.
+2. Backend: Node.js/Express API, deployed as multiple pods for horizontal scaling.
+3. Database: MongoDB, deployed as a single pod with a PersistentVolume for data durability.
+4. Kubernetes: All components are containerized and orchestrated via Kubernetes (example: AKS).
 
 ![alt text](image-1.png)
 
